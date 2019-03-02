@@ -1,3 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
+  <entry>
+    <title><![CDATA[用VBA锁定、解锁工作簿中的所有工作表]]></title>
+    <url>%2F2019%2F03%2F02%2F%E7%94%A8VBA%E9%94%81%E5%AE%9A%E3%80%81%E8%A7%A3%E9%94%81%E5%B7%A5%E4%BD%9C%E7%B0%BF%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%B7%A5%E4%BD%9C%E8%A1%A8%2F</url>
+    <content type="text"><![CDATA[在一个excel工作簿中，对所有的工作表都设置了保护，且密码相同。此时可以用VBA批量撤销保护，同样的，也可以批量重新设置保护。代码如下：注意：需要将工作簿放到当前文件夹进行操作。12345678910111213141516171819202122232425262728293031323334353637383940414243Sub 解锁() Dim wbk As Workbook Dim sht As Worksheet Dim path As String Dim temp As String Dim file_name As String Dim pwd As String Dim address As String path = Application.ThisWorkbook.path &amp; &quot;\&quot; temp = InputBox(&quot;请依次输入工作簿名称及密码（中间用空格隔开）： &quot;, &quot;输入&quot;) file_name = Split(temp, &quot; &quot;)(0) pwd = Split(temp, &quot; &quot;)(1) address = path &amp; file_name Set wbk = Application.Workbooks.Open(Filename:=address) For Each sht In wbk.Worksheets sht.UnProtect password:=pwd Next wbk.Close TrueEnd SubSub 锁定() Dim wbk As Workbook Dim sht As Worksheet Dim path As String Dim temp As String Dim file_name As String Dim pwd As String Dim address As String path = Application.ThisWorkbook.path &amp; &quot;\&quot; temp = InputBox(&quot;请依次输入工作簿名称及密码（中间用空格隔开）： &quot;, &quot;输入&quot;) file_name = Split(temp, &quot; &quot;)(0) pwd = Split(temp, &quot; &quot;)(1) address = path &amp; file_name Set wbk = Application.Workbooks.Open(Filename:=address) For Each sht In wbk.Worksheets sht.Protect password:=pwd Next wbk.Close TrueEnd Sub]]></content>
+      <categories>
+        <category>VBA</category>
+      </categories>
+  </entry>
 </search>
