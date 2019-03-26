@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[距初试剩余24天——开始学习！]]></title>
+    <url>%2F2019%2F03%2F26%2F%E8%B7%9D%E5%88%9D%E8%AF%95%E5%89%A9%E4%BD%9924%E5%A4%A9%E2%80%94%E2%80%94%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%EF%BC%81%2F</url>
+    <content type="text"><![CDATA[1. 当前状况虽然前阵子也做过两三套行测，并且针对图形推理单独做了一些练习，搜集了一些名句，但是，在坚持学习了三四天后，就不了了之了。 时间一晃而过，匆匆报完名，距离初试只剩下24天了。现在还不认真对待，到时候就真的要成炮灰了。 晚上做了套行测模拟题，结果如下： 66.4分。 做模拟题时把120分钟全部用完了，最后还是剩下五六道数量关系题来不及写，只好全选B碰运气。 而实际考试时，还需要预留至少10分钟填答题卡。 所以，真实成绩其实还不到66.4分,估计也就60出头吧，和以前相比没什么变化。 而要想稳进面试，我的目标是140。也即行测70 + 申论70。 2. 备考计划行测方面，言语靠感觉，常识靠积累，资料靠细心，这三项复习意义不大。所以重点在数量和推理两项，需要多做题，总结常见题型和解题方法。此外，要注意提高做题速度。 申论方面，材料和写作都是弱项，都需要多做多练，总结常见题型和解题方法，总结常用文章结构。另外还需要搜集整理时事政策、名言名句，多阅读优秀文章，以提高写作深度。 由于申论长期以来缺少练习（上次写申论还是在去年省考考场上），所以接下来要把重点放在申论上。从明天（3月27日）起，每天做一套申论模拟题。 此外，备考期间作息要求：早上6点起床，中午休息30-40分钟，晚上11点睡觉。]]></content>
+      <categories>
+        <category>决战2019省考</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[用VBA做一个待办事项清单]]></title>
     <url>%2F2019%2F03%2F06%2F%E7%94%A8VBA%E5%81%9A%E4%B8%80%E4%B8%AA%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9%E6%B8%85%E5%8D%95%2F</url>
     <content type="text"><![CDATA[代码如下：12345678910111213141516171819202122232425262728293031323334353637383940414243444546Sub 刷新_Click() &apos;获取总行数 Dim max_row As Integer max_row = UsedRange.Rows.Count Dim i As Integer For i = 3 To max_row &apos;清除颜色 Range(&quot;A&quot; &amp; i &amp; &quot;:&quot; &amp; &quot;F&quot; &amp; i).Interior.ColorIndex = xlNone &apos;如果“截止日期”列非空，也即存在截止日期，则显示剩余可用天数 If Range(&quot;C&quot; &amp; i) &lt;&gt; &quot;&quot; Then Range(&quot;D&quot; &amp; i) = Range(&quot;C&quot; &amp; i) - Date End If &apos;如果“完成日期”列非空，也即已完成该事项，则将该事项优先级设为100，且不再显示截止日期与剩余可用天数 If Range(&quot;E&quot; &amp; i) &lt;&gt; &quot;&quot; Then Range(&quot;A&quot; &amp; i) = 100 Range(&quot;C&quot; &amp; i) = &quot;&quot; Range(&quot;D&quot; &amp; i) = &quot;&quot; End If Next i &apos;排序 With Worksheets(&quot;待办事项&quot;).Sort With .SortFields .Clear .Add Key:=Range(&quot;A3:A&quot; &amp; max_row), SortOn:=xlSortOnValues, Order:=xlAscending &apos;先按优先级大小排序 .Add Key:=Range(&quot;E3:E&quot; &amp; max_row), SortOn:=xlSortOnValues, Order:=xlDescending &apos;再对已完成事项按日期排序 End With .Header = xlYes .Orientation = xlSortColumns .MatchCase = False .SortMethod = xlPinYin .SetRange Rng:=Range(&quot;A2:F&quot; &amp; max_row) .Apply End With &apos;将优先级改为整数 For i = 3 To max_row If Range(&quot;A&quot; &amp; i) &lt; 100 Then Range(&quot;A&quot; &amp; i) = i - 2 End If Next i &apos;将前三项设为红色 Range(&quot;A3:F5&quot;).Interior.ColorIndex = 40End Sub 效果图如下： 使用步骤：1，填写待办事项内容。2，填写截止日期（如果存在的话）。3，根据重要性、紧急性填写优先级大小（可以填小数，刷新后会自动改为整数并顺序排序）。4，填写已完成事项的完成日期。5，点击“刷新”按钮，进行排序。]]></content>
