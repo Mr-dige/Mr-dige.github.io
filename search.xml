@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[每周计划表]]></title>
+    <url>%2F2019%2F04%2F21%2F%E6%AF%8F%E5%91%A8%E8%AE%A1%E5%88%92%E8%A1%A8%2F</url>
+    <content type="text"><![CDATA[每周计划表： 期间 内容 执行情况 备注 2019-04-22至2019-04-28 1，作息：早起时间：6:00 - 7:00，晚睡时间：23:00 - 24:00，午休时长：30 - 60 min2，工作：正常完成各项工作任务。3，学习（特指工作之外的学习）：看完《中国共产党历史》并进行梳理。4，运动：每天跑步3km（跑不动就步行3km）5，饮食：禁止食用汉堡、鸡肉卷、鸡排、辣条等食品。6，其他：禁止打游戏，禁止漫无目的地刷手机（如漫无目的地刷知乎、b站、抖音等，但不包括目的明确地使用它们，比如专门上知乎查找某问题、专门上b站观看某视频等）]]></content>
+      <categories>
+        <category>每周计划表</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[用VBA锁定、解锁工作簿中的所有工作表]]></title>
     <url>%2F2019%2F04%2F09%2F%E7%94%A8VBA%E9%94%81%E5%AE%9A%E3%80%81%E8%A7%A3%E9%94%81%E5%B7%A5%E4%BD%9C%E7%B0%BF%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%B7%A5%E4%BD%9C%E8%A1%A8%2F</url>
     <content type="text"><![CDATA[在一个excel工作簿中，对所有的工作表都设置了保护，且密码相同。此时可以用VBA批量撤销保护，同样的，也可以批量重新设置保护。代码如下：注意：需要将工作簿放到当前文件夹进行操作。12345678910111213141516171819202122232425262728293031323334353637383940414243Sub 解锁_Click() Dim wbk As Workbook Dim sht As Worksheet Dim path As String Dim temp As String Dim file_name As String Dim pwd As String Dim address As String path = Application.ThisWorkbook.path &amp; &quot;\&quot; temp = InputBox(&quot;请依次输入工作簿名称及密码（中间用空格隔开）： &quot;, &quot;输入&quot;) file_name = Split(temp, &quot; &quot;)(0) pwd = Split(temp, &quot; &quot;)(1) address = path &amp; file_name Set wbk = Application.Workbooks.Open(Filename:=address) For Each sht In wbk.Worksheets sht.Unprotect Password:=pwd Next wbk.Close TrueEnd SubSub 锁定_Click() Dim wbk As Workbook Dim sht As Worksheet Dim path As String Dim temp As String Dim file_name As String Dim pwd As String Dim address As String path = Application.ThisWorkbook.path &amp; &quot;\&quot; temp = InputBox(&quot;请依次输入工作簿名称及密码（中间用空格隔开）： &quot;, &quot;输入&quot;) file_name = Split(temp, &quot; &quot;)(0) pwd = Split(temp, &quot; &quot;)(1) address = path &amp; file_name Set wbk = Application.Workbooks.Open(Filename:=address) For Each sht In wbk.Worksheets sht.Protect Password:=pwd Next wbk.Close TrueEnd Sub 附件下载：解锁and锁定.xlsm]]></content>
